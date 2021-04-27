@@ -4,6 +4,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import firebase from 'firebase';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import { fetchUserByEmail } from '../../redux/actions';
 import List from './List';
 
@@ -12,6 +13,7 @@ export default function Main(props) {
     const [user, setUser] = useState(null)
     const currentUser = useSelector(state => state.userState.user)
 
+    const history = useHistory()
 
     useEffect(() => {
         if (firebase.auth().currentUser == null) {
@@ -75,9 +77,8 @@ export default function Main(props) {
                     Share Link
                 </Fab>
                 {currentUserEmail == props.match.params.email ?
-                    <Link className="m-0" to={`/link/add`} style={{ color: 'white', color: '#FFFFFF', textDecoration: 'none'}}>
-                        <Fab variant="extended" color="secondary" style={{ background: '#161616', color: 'white',  textDecoration: 'none' }} aria-label="add"
-                            href={`/link/add`}>
+                    <Link className="m-0" to={`/add`} style={{ color: 'white', color: '#FFFFFF', textDecoration: 'none'}}>
+                        <Fab variant="extended" color="secondary" style={{ background: '#161616', color: 'white',  textDecoration: 'none' }} aria-label="add" onClick={() => history.push('/add')}>
                             <AddIcon className="mr-2" />
                     Add Wallet
                 </Fab>
