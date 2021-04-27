@@ -30,13 +30,7 @@ export default function Main() {
                 <Switch>
                     <Route exact path="/" component={Home} />
 
-                    {!isAuthenticated ?
-                        <div>
-                            <Route exact path="/link/add" component={Add} />
-
-                        </div>
-                        : null
-                    }
+                    <Route exact path="/add" component={Add} />
 
                     <Route exact path="/link/:email" component={MainLink} />
                 </Switch>

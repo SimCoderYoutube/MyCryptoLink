@@ -2,7 +2,6 @@ import { Backdrop, CircularProgress } from "@material-ui/core";
 import 'bootstrap/dist/css/bootstrap.css';
 import firebase from 'firebase';
 import React, { useEffect, useState } from "react";
-import { MarkdownProvider } from 'react-markdown-tree';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
@@ -29,20 +28,21 @@ const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
-  const [user, setUse] = useState(null)
+  const [user, setUser] = useState(null)
 
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
-      setUse(user)
       setLoaded(true)
+      setUser(user)
     });
   }, [])
 
+  console.log({loaded})
   if (!loaded) {
+    console.log({loaded})
     return (
       <div className="background-grad" style={{height: '100vh'}}>
-
         <Backdrop style={{
           zIndex: 999999,
           color: '#fff',
@@ -57,9 +57,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <MarkdownProvider >
         <Main />
-      </MarkdownProvider>
     </Provider>
   );
 }

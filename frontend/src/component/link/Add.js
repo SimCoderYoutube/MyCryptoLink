@@ -90,7 +90,11 @@ export default function Add(props) {
         setActiveStep(0);
     };
 
+    if(firebase.auth().currentUser == null){
+        history.push('/')
+    }
 
+    console.log({saving})
     return (
         <div className={classes.root}>
             {saving ?
