@@ -123,7 +123,7 @@ See the [open issues](https://github.com/SimCoderYoutube/MyCryptoLink/issues) fo
 <!-- CONTRIBUTING -->
 ## ➕ Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please check the [Wiki](https://github.com/SimCoderYoutube/MyCryptoLink/issues) 
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please check the [Wiki](https://github.com/SimCoderYoutube/MyCryptoLink/wiki/How-to-Contribute) 
 
 
 ## 🌟 Show your support
