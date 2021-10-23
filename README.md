@@ -52,7 +52,6 @@
     <li><a href="#support">Support</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-   
   </ol>
 </details>
 
@@ -63,9 +62,9 @@
 
 ![alt text](images/preview.png "Title")
 
-This project is similar to linkTree and aims at allwoing anyone to easily share their crypto wallet adresses with anyone with just one easy link.
+This project is similar to [LinkTree](https://linktr.ee/) and aims to allow anyone to easily share their crypto wallet addresses with anyone with just one easy link.
 
-Specially important for anyone with an online presence that wants to receive donations as it offers a clean way of giving this donation option without the need to typing an adress each and every single time someone asks for it.
+It is specifically important for anyone with an online presence that wants to receive donations as it offers a clean way of giving this donation option without the need to typing an address each and every single time someone asks for it.
 
 
 ### Built With
@@ -100,12 +99,12 @@ This is an example of how to list things you need to use the software and how to
    ```
 
 1. Firebase
-    1. Create a firebase project
+    1. Create a Firebase project
     1. Start Realtime database (it won't get used but it needs to be initialized)
     1. Enable Firestore and paste the firestore_rules.txt into the rules tab
-    1. go to authentication and enable google sign in
-    1. go to project settings and add a web app
-    1. Copy the firebaseConfig and past it into frontend/src/App.js replacing the current firebaseConfig
+    1. Go to authentication and enable google sign in
+    1. Go to project settings and add a web app
+    1. Copy the firebaseConfig and paste it into ``frontend/src/App.js`` replacing the current firebaseConfig
     1. Deploy the firebase function with the in backend/index.js file
 
 1. Run
