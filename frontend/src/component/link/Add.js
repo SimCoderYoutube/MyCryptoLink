@@ -58,10 +58,10 @@ function getStepContent(step, props, setWallet, setToken, wallet, token) {
 export default function Add(props) {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
-    const [token, setToken] = useState({ symbol: undefined })
-    const [wallet, setWallet] = useState('')
+    const [token, setToken] = useState({ symbol: undefined });
+    const [wallet, setWallet] = useState('');
     const [isValid, setIsValid] = useState(true);
-    const [saving, setSaving] = useState(false)
+    const [saving, setSaving] = useState(false);
 
     const steps = getSteps();
     const dispatch = useDispatch();
@@ -69,13 +69,13 @@ export default function Add(props) {
 
     const handleNext = () => {
         if (activeStep == steps.length - 1) {
-            setSaving(true)
+            setSaving(true);
             dispatch(addLink(token, wallet)).then(() => {
                 history.push(`/link/${firebase.auth().currentUser.email}`);
             }).catch((error) => {
-                setSaving(false)
+                setSaving(false);
 
-                setIsValid({ bool: true, boolSnack: true, message: error.message })
+                setIsValid({ bool: true, boolSnack: true, message: error.message });
             })
             return;
         }
@@ -91,10 +91,9 @@ export default function Add(props) {
     };
 
     if(firebase.auth().currentUser == null){
-        history.push('/')
+        history.push('/');
     }
 
-    console.log({saving})
     return (
         <div className={classes.root}>
             {saving ?

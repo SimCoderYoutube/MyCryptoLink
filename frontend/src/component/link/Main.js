@@ -10,33 +10,30 @@ import List from './List';
 
 export default function Main(props) {
     const dispatch = useDispatch();
-    const [user, setUser] = useState(null)
-    const currentUser = useSelector(state => state.userState.user)
+    const [user, setUser] = useState(null);
+    const currentUser = useSelector(state => state.userState.user);
 
-    const history = useHistory()
+    const history = useHistory();
 
     useEffect(() => {
         if (firebase.auth().currentUser == null) {
             dispatch(fetchUserByEmail(props.match.params.email, false)).then((result) => {
-                console.log({result});
-                setUser(result)
+                setUser(result);
             })
             return;
         }
         if (firebase.auth().currentUser.email == props.match.params.email) {
-
-            console.log({currentUser})
             setUser(currentUser);
             return;
         }
         dispatch(fetchUserByEmail(props.match.params.email, false)).then((result) => {
             
-            setUser(result)
+            setUser(result);
         })
-    }, [firebase.auth().currentUser, props, currentUser])
+    }, [firebase.auth().currentUser, props, currentUser]);
 
     const copyToClipBoard = () => {
-        navigator.clipboard.writeText(`${window.location.host}/link/${user.email}`)
+        navigator.clipboard.writeText(`${window.location.host}/link/${user.email}`);
     }
 
     if (user == null) {
@@ -52,10 +49,10 @@ export default function Main(props) {
                 </Backdrop>
             </div>
 
-        )
+        );
     }
 
-    let currentUserEmail = null
+    let currentUserEmail = null;
     if (firebase.auth().currentUser != null) {
         currentUserEmail = firebase.auth().currentUser.email
     }
@@ -80,19 +77,16 @@ export default function Main(props) {
                     <Link className="m-0" to={`/add`} style={{ color: 'white', color: '#FFFFFF', textDecoration: 'none'}}>
                         <Fab variant="extended" color="secondary" style={{ background: '#161616', color: 'white',  textDecoration: 'none' }} aria-label="add" onClick={() => history.push('/add')}>
                             <AddIcon className="mr-2" />
-                    Add Wallet
-                </Fab>
+                            Add Wallet
+                        </Fab>
                     </Link>
                     : null}
 
             </div>
             <div className="mt-4 pb-5">
                 <List props={props} interaction={true} uid={user.uid}/>
-
             </div>
 
-
-
         </div>
-    )
+    );
 }

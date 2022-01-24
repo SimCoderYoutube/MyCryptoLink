@@ -9,34 +9,33 @@ import { deleteLink } from '../../redux/actions';
 const cryptocurrencies = require('cryptocurrencies');
 
 export default function Item({ props, interaction, item = { id: '', token: {}, wallet: '' } }) {
-    const [mouseEnter, setMouseEnter] = useState(false)
-    const [deleted, setDeleted] = useState(false)
-    const [deleting, setDeleting] = useState(false)
+    const [mouseEnter, setMouseEnter] = useState(false);
+    const [deleted, setDeleted] = useState(false);
+    const [deleting, setDeleting] = useState(false);
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const copyToClipBoard = () => {
-        navigator.clipboard.writeText(item.wallet)
+        navigator.clipboard.writeText(item.wallet);
     }
     const handleDeleteLink = () => {
-        setDeleting(true)
-        console.log(item)
+        setDeleting(true);
         dispatch(deleteLink(item.id)).then(() => {
             setDeleted(true);
-            setDeleting(false)
+            setDeleting(false);
         }).catch(() => {
             setDeleted(false);
-            setDeleting(false)
+            setDeleting(false);
         })
     }
 
 
     if (deleted) {
-        return (null)
+        return (null);
     }
 
-    let currentUserEmail = null
+    let currentUserEmail = null;
     if (firebase.auth().currentUser != null) {
-        currentUserEmail = firebase.auth().currentUser.email
+        currentUserEmail = firebase.auth().currentUser.email;
     }
 
     return (
@@ -96,5 +95,5 @@ export default function Item({ props, interaction, item = { id: '', token: {}, w
             </div>
 
         </Card>
-    )
+    );
 }

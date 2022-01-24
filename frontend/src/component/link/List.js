@@ -7,24 +7,22 @@ import Item from './Item';
 
 
 export default function List({ props, interaction, uid }) {
-    const [links, setLinks] = useState([])
+    const [links, setLinks] = useState([]);
     const dispatch = useDispatch();
     const [isValid, setIsValid] = useState(true);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true);
         dispatch(fetchUserLinks(uid)).then((result) => {
-            setLinks(result)
-            setLoading(false)
+            setLinks(result);
+            setLoading(false);
         }).catch((error) => {
             setIsValid({ bool: true, boolSnack: true, message: error.message })
-            setLoading(false)
+            setLoading(false);
         })
-    }, [props, uid])
-
-    console.log(links)
+    }, [props, uid]);
 
     if (loading) {
         return (
@@ -50,7 +48,7 @@ export default function List({ props, interaction, uid }) {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
     return (
         <div className="container">
@@ -58,9 +56,9 @@ export default function List({ props, interaction, uid }) {
                 {links.map((item, i) => {
                     return (
                         <Item props={props} interaction={interaction} item={item} />
-                    )
+                    );
                 })}
             </div>
         </div>
-    )
+    );
 }
