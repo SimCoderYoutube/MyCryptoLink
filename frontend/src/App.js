@@ -8,6 +8,8 @@ import thunk from 'redux-thunk';
 import Main from "./component/Main";
 import rootReducer from './redux/reducers';
 
+//Don't forget to subscribe 
+
 var firebaseConfig = {
   apiKey: "****",
   authDomain: "****",
@@ -38,11 +40,11 @@ export default function App() {
     });
   }, [])
 
-  console.log({loaded})
+  console.log({ loaded })
   if (!loaded) {
-    console.log({loaded})
+    console.log({ loaded })
     return (
-      <div className="background-grad" style={{height: '100vh'}}>
+      <div className="background-grad" style={{ height: '100vh' }}>
         <Backdrop style={{
           zIndex: 999999,
           color: '#fff',
@@ -57,7 +59,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-        <Main />
+      <Main />
     </Provider>
   );
 }
