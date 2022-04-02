@@ -113,6 +113,7 @@ export default function Add(props) {
                             <div className={classes.actionsContainer}>
                                 <div>
                                     <Button
+                                        variant="contained"
                                         disabled={activeStep === 0}
                                         onClick={handleBack}
                                         className={classes.button}>
