@@ -10,7 +10,7 @@ import Home from './Home';
 import Add from './link/Add';
 import MainLink from './link/Main';
 import Navbar from './utils/Navbar';
-
+import NotFound from './utils/NotFound';
 
 export default function Main() {
     const isAuthenticated = useSelector(state => state.userState.isAuthenticated)
@@ -33,6 +33,8 @@ export default function Main() {
                     <Route exact path="/add" component={Add} />
 
                     <Route exact path="/link/:email" component={MainLink} />
+
+                    <Route component={NotFound}/>
                 </Switch>
             </div>
         </Router>
