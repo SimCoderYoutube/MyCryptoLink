@@ -4,6 +4,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
+
 export default function Home() {
     return (
         <div className='background-grad w-100 overflow-hidden' style={{ height: 'calc(100vh - 64px)' }}>
